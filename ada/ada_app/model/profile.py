@@ -13,3 +13,6 @@ class Profile(models.Model):
     language = models.CharField(max_length=40)
     gpsL = models.CharField(max_length=100)
     gpsA = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name

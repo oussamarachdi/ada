@@ -33,7 +33,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # apps
     'ada_app',
-    
+    'rest_framework', 
+
     #django_apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -83,6 +84,9 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+
 
 
 # Password validation

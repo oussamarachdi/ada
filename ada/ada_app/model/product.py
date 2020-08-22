@@ -14,4 +14,7 @@ class Product(models.Model):
     creationdate = models.DateTimeField(auto_now_add=True, blank=True)
     isFree = models.BooleanField(default=False)
     review = models.IntegerField()
+
+    def __str__(self):
+        return self.name
     

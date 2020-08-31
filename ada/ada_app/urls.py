@@ -1,5 +1,5 @@
-from django.urls import path, include
-from ada_app import views 
+from django.urls import path
+from ada_app import views
 
 urlpatterns = [
         path('', views.index, name='index'),

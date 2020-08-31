@@ -2,7 +2,7 @@ from django.db import models
 from .productimage import ProductImage
 from .profile import Profile
 from .myproduct import MyProduct
-from django.utils.timezone import timezone 
+
 
 class Product(models.Model):
     myproduct = models.ForeignKey(MyProduct, on_delete=models.CASCADE)

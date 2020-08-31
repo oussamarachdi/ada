@@ -107,13 +107,13 @@ body {
         <div class="login">
             <div class="login-triangle"></div>
             
-            <h2 class="login-header">Log in</h2>
+            <h2 class="login-header">Sign In</h2>
         
-            <form class="login-container" method="POST" action="{% url 'login' %}">
+            <form class="login-container" method="POST" action="{% url 'register' %}">
                 {% csrf_token %}
             <p>Username : {{ form.username }}</p>
             <p>Password : {{ form.password }}</p>
-            <input type="submit" value="Log in">
+            <input type="submit" value="Sign Up">
             <input type="hidden" name="next" value="{{ next }}">
             </form>
             

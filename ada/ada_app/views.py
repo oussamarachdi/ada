@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 
 
-def index(request):
+def profile(request):
     return render(request, 'ada_app/profile.html')
 
 

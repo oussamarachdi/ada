@@ -38,6 +38,8 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = [
             'pk',
             'name',
+            'subcategory',
+            'product',
         ]
 
 class MyProductSerializer(serializers.ModelSerializer):
@@ -76,7 +78,9 @@ class ProfileSerializer(serializers.ModelSerializer):
             'name',
             'email',
             'phone',
-            'language'
+            'language',
+            'product',
+            'myproduct',
         ]
 
 class RegionSerializer(serializers.ModelSerializer):
@@ -93,4 +97,5 @@ class SubCategorySerializer(serializers.ModelSerializer):
 
         fields = [
             'name',
+            'product',
         ]

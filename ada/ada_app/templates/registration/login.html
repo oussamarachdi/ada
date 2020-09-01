@@ -109,11 +109,11 @@ body {
             
             <h2 class="login-header">Sign In</h2>
         
-            <form class="login-container" method="POST" action="{% url 'register' %}">
+            <form class="login-container" method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
             <p>Username : {{ form.username }}</p>
             <p>Password : {{ form.password }}</p>
-            <input type="submit" value="Sign Up">
+            <input type="submit" value="Sign In">
             <input type="hidden" name="next" value="{{ next }}">
             </form>
             

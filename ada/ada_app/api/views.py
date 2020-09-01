@@ -3,7 +3,7 @@ from ada_app.models import Product, Category, MyProduct, MyWishList, ProductImag
 from .serializers import ProductSerializer, CategorySerializer, SubCategorySerializer, MyProductSerializer, MyWishListSerializer, ProfileSerializer, RegionSerializer, ProductImageSerializer
 
 class ProductRudView(generics.RetrieveUpdateDestroyAPIView):
-    lookup_field = 'name'
+    lookup_field = 'id'
     serializer_class = ProductSerializer
     def get_queryset(self):
         return Product.objects.all()
@@ -13,14 +13,14 @@ class ProductRudView(generics.RetrieveUpdateDestroyAPIView):
     #    return Product.objects.get(pk=pk)
 
 class ProductAPIView(generics.CreateAPIView):
-    lookup_field = 'name'
+    lookup_field = ''
     serializer_class = ProductSerializer
 
     def get_queryset(self):
         return Product.objects.all()
 
 class CategoryRudView(generics.RetrieveUpdateDestroyAPIView):
-    lookup_field = 'name'
+    lookup_field = 'id'
     serializer_class = CategorySerializer
     def get_queryset(self):
         return Category.objects.all()
@@ -33,7 +33,7 @@ class CategoryAPIView(generics.CreateAPIView):
         return Category.objects.all()
 
 class SubCategoryRudView(generics.RetrieveUpdateDestroyAPIView):
-    lookup_field = 'name'
+    lookup_field = 'id'
     serializer_class = SubCategorySerializer
 
     def get_queryset(self):

@@ -1,15 +1,37 @@
 from django.urls import path
-from .views import ProductRudView, ProductAPIView, CategoryRudView, SubCategoryRudView, ProfileRudView, MyWishListRudView, ProductImageRudView, RegionRudView, MyProductRudView
+from .views import (ProductRudView,
+                    ProductAPIView, 
+                    CategoryRudView,
+                    CategoryAPIView, 
+                    SubCategoryRudView,
+                    SubCategoryAPIView, 
+                    ProfileRudView,
+                    ProfileAPIView, 
+                    MyWishListRudView,
+                    MyWishListAPIView, 
+                    ProductImageRudView,
+                    ProductImageAPIView, 
+                    RegionRudView, 
+                    RegionAPIView,
+                    MyProductRudView,
+                    MyProductAPIView)
 
 
 urlpatterns = [
     path('product/', ProductAPIView.as_view(), name='product-create'),
     path('product/<name>/', ProductRudView.as_view(), name='product-rud'),
+    path('category/', CategoryAPIView.as_view(), name='category-create'),
     path('category/<name>/', CategoryRudView.as_view(), name='category-rud'),
+    path('subcategory/', SubCategoryAPIView.as_view(), name='subcategory-create'),
     path('subcategory/<name>/', SubCategoryRudView.as_view(), name='subcategory-rud'),
+    path('profile/', ProfileAPIView.as_view(), name='profile-create'),
     path('profile/<id>/', ProfileRudView.as_view(), name='profile-rud'),
     path('mywishlist/<name>/', MyWishListRudView.as_view(), name='mywishlist-rud'),
+    path('mywishlist/', MyWishListAPIView.as_view(), name='mywishlist-create'),
+    path('myproduct/', MyProductAPIView.as_view(), name='myproduct-create'),
     path('myproduct/<name>/', MyProductRudView.as_view(), name='myproduct-rud'),
-    path('image/<name>/', ProductImageRudView.as_view(), name='productimage-rud'),
+    path('image/', ProductImageAPIView.as_view(), name='image-create'),
+    path('image/<name>/', ProductImageRudView.as_view(), name='image-rud'),
+    path('region/', RegionAPIView.as_view(), name='region-create'),
     path('region/<name>/', RegionRudView.as_view(), name='region-rud'),
 ]

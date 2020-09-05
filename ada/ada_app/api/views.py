@@ -1,7 +1,19 @@
-from rest_framework import generics
+from rest_framework import generics, mixins
 from ada_app.models import Product, Category, MyProduct, MyWishList, ProductImage, Profile, Region, SubCategory
 from .serializers import ProductSerializer, CategorySerializer, SubCategorySerializer, MyProductSerializer, MyWishListSerializer, ProfileSerializer, RegionSerializer, ProductImageSerializer
 
+class ProductAPIView(mixins.CreateModelMixin, generics.ListAPIView):
+    lookup_field = ''
+    serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        return Product.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+    
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
 class ProductRudView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'id'
     serializer_class = ProductSerializer
@@ -11,13 +23,6 @@ class ProductRudView(generics.RetrieveUpdateDestroyAPIView):
     #def get_object(self):
     #    pk = self.kwargs.get("pk")
     #    return Product.objects.get(pk=pk)
-
-class ProductAPIView(generics.CreateAPIView):
-    lookup_field = ''
-    serializer_class = ProductSerializer
-
-    def get_queryset(self):
-        return Product.objects.all()
 
 class CategoryRudView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'id'

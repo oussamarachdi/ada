@@ -1,9 +1,17 @@
 from django.db import models
 from .productimage import ProductImage
 from .myproduct import MyProduct
+from .category import Category
+from .subcategory import SubCategory
+from .profile import Profile
+
+
 
 
 class Product(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     myproduct = models.ForeignKey(MyProduct, on_delete=models.CASCADE)
     productimages = models.ForeignKey(ProductImage, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
@@ -15,4 +23,3 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-    

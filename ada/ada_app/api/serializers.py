@@ -10,11 +10,12 @@ from ada_app.models import (Product,
                             MyProduct)
 
 class ProductSerializer(serializers.ModelSerializer):
+    url = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = Product
 
         fields = [
-            'pk',
+            'id',
             'name',
             'price',
             'description',
@@ -23,6 +24,10 @@ class ProductSerializer(serializers.ModelSerializer):
             'creationdate'
         ]
         read_only_field = ['user']
+
+    def get_url(self, obj):
+        return obj.get_api_url()
+
     def validate_name(self, value):
         qs = Product.objects.filter(name__iexact=value)
         if self.instance:
@@ -38,7 +43,6 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = [
             'pk',
             'name',
-            'subcategory',
             'product',
         ]
 
@@ -66,6 +70,7 @@ class ProductImageSerializer(serializers.ModelSerializer):
         model = ProductImage
         fields = [
             'name',
+            'File',
         ]
 
 
@@ -79,8 +84,6 @@ class ProfileSerializer(serializers.ModelSerializer):
             'email',
             'phone',
             'language',
-            'product',
-            'myproduct',
         ]
 
 class RegionSerializer(serializers.ModelSerializer):
@@ -97,5 +100,4 @@ class SubCategorySerializer(serializers.ModelSerializer):
 
         fields = [
             'name',
-            'product',
         ]

@@ -1,9 +1,8 @@
 from django.db import models
-from .productimage import ProductImage
-from .myproduct import MyProduct
 from .category import Category
 from .subcategory import SubCategory
 from .profile import Profile
+from .mywishlist import MyWishList
 
 
 
@@ -12,8 +11,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    myproduct = models.ForeignKey(MyProduct, on_delete=models.CASCADE)
-    productimages = models.ForeignKey(ProductImage, on_delete=models.CASCADE)
+    mywishlist = models.ForeignKey(MyWishList, on_delete= models.CASCADE)
     name = models.CharField(max_length=30)
     price = models.FloatField(max_length=40)
     description = models.CharField(max_length=500)

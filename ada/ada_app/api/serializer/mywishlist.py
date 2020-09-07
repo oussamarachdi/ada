@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from ada_app.models import MyWishList
 
-class MyWishListSerializer(serializers.ModelSerializer):
+class MyWishListReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = MyWishList
 
@@ -10,3 +10,10 @@ class MyWishListSerializer(serializers.ModelSerializer):
             'name',
             'products'
         ]
+
+class MyWishListWriteSerializer(serializers.ModelSerializer):
+
+    class Meta:
+
+        fields = '__all__'
+

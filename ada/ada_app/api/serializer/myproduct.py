@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from ada_app.models import MyProduct
 
-class MyProductSerializer(serializers.ModelSerializer):
+class MyProductListSerializer(serializers.ModelSerializer):
     class Meta:
         model = MyProduct
 
@@ -9,3 +9,11 @@ class MyProductSerializer(serializers.ModelSerializer):
             'name',
             'user'
         ]
+
+class MyProductWriteSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = MyProduct
+
+        fields = '__all__'
+

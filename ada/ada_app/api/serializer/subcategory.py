@@ -1,9 +1,9 @@
 from rest_framework import serializers
 from ada_app.models import SubCategory
-from .product import ProductSerializer
+from .product import ProductListSerializer
 
-class SubCategorySerializer(serializers.ModelSerializer):
-    product_set = ProductSerializer(many=True)
+class SubCategoryListSerializer(serializers.ModelSerializer):
+    product_set = ProductListSerializer(many=True, read_only=True)
     class Meta:
         model = SubCategory
 
@@ -13,3 +13,11 @@ class SubCategorySerializer(serializers.ModelSerializer):
             'product_set',
         ]
     
+class SubCategoryWriteSerializer(serializers.ModelSerializer):
+
+    class Meta :
+        model = SubCategory
+
+        fields = [
+            'name',
+        ]

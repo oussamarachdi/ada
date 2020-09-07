@@ -1,8 +1,8 @@
-from .category import CategorySerializer
-from .myproduct import MyProductSerializer
-from .mywishlist import MyWishListSerializer
-from .product import ProductSerializer
-from .productimage import ProductImageSerializer
-from .profile import ProfileSerializer
-from .region import RegionSerializer
-from .subcategory import SubCategorySerializer
+from .category import CategoryListSerializer, CategoryWriteSerializer
+from .myproduct import MyProductListSerializer, MyProductWriteSerializer
+from .mywishlist import MyWishListWriteSerializer, MyWishListReadSerializer
+from .product import ProductListSerializer, ProductWriteSerializer
+from .productimage import ProductImageReadSerializer, ProductImageWriteSerializer
+from .profile import ProfileListSerializer, ProfileWriteSerializer
+from .region import RegionReadSerializer, RegionWriteSerializer
+from .subcategory import SubCategoryListSerializer, SubCategoryWriteSerializer

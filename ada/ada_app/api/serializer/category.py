@@ -5,8 +5,8 @@ from .product import ProductSerializer
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    subcategory_set = SubCategorySerializer(many=True)
-    prosuct_set = ProductSerializer
+    subcategory_set = SubCategorySerializer(many=True, read_only=True)
+    product_set = ProductSerializer(many=True, read_only=True)
     class Meta:
         model = Category
 
@@ -16,4 +16,5 @@ class CategorySerializer(serializers.ModelSerializer):
             'subcategory_set',
             'product_set',
         ]
+
     

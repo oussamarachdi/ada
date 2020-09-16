@@ -33,3 +33,23 @@ input[type=submit], input[type=button], .submit-row input{
     width: 100%;
     background: rgb(0, 62, 69);
 }
+
+#changelist #toolbar form input[type="submit"] {
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 -15px 20px -10px rgba(0, 0, 0, 0.15) inset;
+    cursor: pointer;
+    height: 24px;
+    line-height: 1;
+    padding: 4px 8px;
+    margin: 0;
+    color: #333;
+}
+
+.submit-row input.default {
+    margin: 0 0 0 8px;
+    text-transform: uppercase;
+    width: 20%;
+}

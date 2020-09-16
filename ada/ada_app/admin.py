@@ -10,11 +10,19 @@ from ada_app.model import (Product,
                            MyProduct)
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'creationdate')
-    list_filter = ('creationdate',)
+        list_display = ('name', 'creationdate')
+        list_filter = ('creationdate',)
+        search_fields = ('name__exact',)
 
+        def get_ordering(self, request):
+            if request.user.is_superuser:
+                return ('name', 'creationdate',)
 
-admin.site.site_header = 'ADA ADMIN'
+            return  ('name',)
+
+admin.site.site_header = 'Ada Admin'
+admin.site.site_title = 'Ada Admin'
+admin.site.index_title = 'Ada Administration'
 #admin.site.unregister(Group)
 admin.site.register(Profile)
 admin.site.register(ProductImage)

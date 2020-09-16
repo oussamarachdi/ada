@@ -1,0 +1,19 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+
+
+{% block branding %}
+
+<h1 id="head">
+    <img src="{% static 'images/logo.jpg' %}" width="35" heigh= "35">
+    Ada Admin
+</h1>
+
+{% endblock %}
+
+{% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'css/adminstyle.css' %}">
+
+
+{% endblock %}
